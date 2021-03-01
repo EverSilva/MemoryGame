@@ -1,0 +1,133 @@
+:root {
+    --primaryColor : #17A589
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+  background: #ddd; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0); 
+}
+
+@keyframes shake_img {
+    0% {margin-left: 0px;}
+    25% {margin-left: 20px;}
+    35% {transform: rotateZ(0deg)}
+    50% {margin-left: 0px; transform: rotateZ(-10deg)}
+    55% { transform: rotateZ(0deg) }
+    75% {margin-left: -20px;}
+    80% { transform: rotateZ(10deg) }
+    85% { transform: rotateZ(0deg) }
+    100% {margin-left: 0px;}
+}
+#table {
+    display: flex; justify-content: center; align-items: center; flex-wrap: wrap; position: relative; font-family: 'Poppins', sans-serif; padding-top: 50px;
+}
+.card {
+    margin: 5px;
+}
+.card .content {
+	height: 150px; width: 150px; transition: transform 0.6s; transform-style: preserve-3d; position: relative;  margin: 12px; border: solid 3px #24292e; cursor: pointer;
+}
+
+.card .content.flipped {
+    transform: rotateY(180deg);
+}
+
+.content .back .text {
+    font-size: 19.5px; color:#666; background-color: #fff; width: 100%; position: absolute; top: 50%; left: 50%; transform: scale(0) translate(-50%, -50%); text-align: center; border: solid 3px #24292e; transform-origin: left top; transition: transform .2s linear; padding: 6px 10px; line-height: 1em;
+}
+.card .content.flipped .back .text {
+    transform: scale(1) translate(-50%, -50%); transition: all .2 linear; overflow: hidden;
+}
+.card .content .back .text i {
+    display: block; opacity: .1; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 90px;
+}
+.front {
+    position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; background-color: var(--primaryColor);
+}
+.front svg {
+    width: 94%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.5);
+}
+.back {
+  position: absolute; width: 100%; height: 100%;  background-color: var(--primaryColor); transform: rotateY(-180deg);
+}
+
+#error, #correct {
+    position: absolute; top: 100%; z-index: 998; height: 200px; border-radius: 50%; box-shadow: 2px 2px 5px #c9c9c9; border: solid 1px #c9c9c9; overflow: hidden; transition: .2s linear all;
+}
+#error img, #correct img {
+    height: 100%;
+}
+#error .label, #correct .label {
+    position: absolute; top: 0; left: 0; background-color: rgba(30, 30, 30, .8); height: 100%; width: 100%; text-align: center; line-height: 200px; font-size: 24px; color: #f9f9f9; text-shadow: 2px 2px 2px #111; opacity: 0; transition: all .2s linear; cursor: pointer;
+}
+#error .label:hover, #correct .label:hover {
+    opacity: 1;
+}
+#error.opened, #correct.opened {
+    transform: translateX(-50%) scale(1);
+}
+#error {
+    left: 50%; transform: translateX(-50%) scale(0);
+}
+#correct {
+    left: 50%; transform: translateX(-50%) scale(0);
+}
+#result {
+    font-family: "Poppins"; font-size: 15px; color: #555; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;
+}
+#count {
+    font-size: 50px; color: var(--primaryColor); text-shadow: 1px 1px 1px #777; position: fixed; top: 0%; left: 50%; transform: translateX(-50%); transform-origin: 50% 50%; text-align: center;
+}
+.pulse {
+    animation: pulse 1 .3s linear;
+}
+@keyframes pulse {
+    0% { transform: scale(2.5) translateX(-50%)}
+    100% { transform: scale(1) translateX(-50%)}
+}
+#goal {
+    position: fixed; bottom: 0%; right: 0; transform: translate(-50%, -50%); z-index: 999; display: none;
+}
+#goal #goal-icon {    
+    height: 65px; width: 65px; cursor: pointer;
+}
+#goal-list.closed #glass {
+    display: none;
+}
+#goal-list.closed #goal-list-box {
+    right: -400px;
+}
+#glass {
+    display: block; position: fixed; height: 100%; width: 100%; background-color: rgba(0, 0, 0, .8);
+}
+#close-goal {
+    position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 20px;
+}
+#goal-list {
+    position: fixed; top: 0; left: 0; z-index: 999; transition: all .2s linear;
+}
+#goal-list-box {
+    padding-top: 60px; position: fixed; top: 0; right: 0; height: 100%; width: 400px; background-color: #fff; overflow-y: scroll; transition: linear .2s all;
+}
+#goal-list-box .title {
+    font-size: 20px; text-align: center; font-weight: bold; color: #555;
+}
+#goal-list-box .goal-item {
+    font-size: 15px; padding: 8px 16px; margin: 10px 20px; border: solid 1px #d9d9d9; border-radius: 4px; box-shadow: 1px 1px 1px #c9c9c9; text-align: center; color: #444; line-height: 1.1em;
+}
+#goal-list-box .goal-item i {
+    display: none;
+}
+#goal-list-box .goal-item.checked {
+    cursor: not-allowed; background-color: #D0ECE7; color: #0E6655;   
+}
+#goal-list-box .goal-item.checked:after {
+    content: "✓"; display: block; text-align: center;
+}

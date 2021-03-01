@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-database.js"></script>
+
+    <script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyAFPMDbcjbgf6ZznBQ-SGTO1aE87s1TErw",
+        authDomain: "wiki-mercado-livre.firebaseapp.com",
+        databaseURL: "https://wiki-mercado-livre.firebaseio.com",
+        projectId: "wiki-mercado-livre",
+        storageBucket: "wiki-mercado-livre.appspot.com",
+        messagingSenderId: "946747397449",
+        appId: "1:946747397449:web:3233835b61c0e109267698",
+        measurementId: "G-ZGBCQJZNK2"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+
+</head>
+
+<body>
+    <div id="table">
+        <div id="error" onclick="nextStep(false)">
+            <img src="img/error.gif" alt="">
+            <div class="label">
+                Que pena :(
+            </div>
+        </div>
+        <div id="correct" onclick="nextStep(true)">
+            <img src="img/correct.gif" alt="">
+            <div class="label">
+                Próxima :D
+            </div>
+        </div>
+        <div id="goal" onclick="toggleGoals()">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/3176/3176366.svg" alt="" id="goal-icon" style="margin: auto; display: block;">
+            <span style="display: block; text-align: center;">Lista de Itens</span>
+        </div>
+        <div id="goal-list" class="closed">
+            <div id="glass" onclick="closeGoals()">
+            </div>
+            <div id="goal-list-box">
+                <span id="close-goal" onclick="closeGoals()">❌</span>
+                <div class="title">
+                    Lista de itens
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="result">
+        <h3>Obrigado por participar :)<br>Veja seus resultados</h3>
+        <div id="text_result">
+
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
